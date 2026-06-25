@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息索引 · 易胜博体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #f2f4f6;
+            color: #1e2a3a;
+            line-height: 1.65;
+            padding: 2rem 1rem;
+        }
+
+        .page-wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        /* hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3rem 2.2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e6e9ed;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            color: #1a2635;
+        }
+
+        .hero h1 span {
+            font-weight: 400;
+            color: #4f6a8c;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto 1.2rem auto;
+            font-size: 1.1rem;
+            color: #3b4b62;
+        }
+
+        .hero .sub-meta {
+            display: inline-block;
+            background: #eef1f5;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #3f5772;
+            border: 1px solid #d9dfe5;
+        }
+
+        /* section card */
+        .section-card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 2rem 2rem 2.2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0, 0, 0, 0.01);
+            border: 1px solid #e4e8ed;
+            transition: box-shadow 0.1s ease;
+        }
+
+        .section-card:hover {
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.03);
+        }
+
+        .section-title {
+            font-weight: 500;
+            font-size: 1.5rem;
+            margin-bottom: 1.1rem;
+            color: #1e2c3b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title .accent-line {
+            width: 4px;
+            height: 24px;
+            background: #8aa3c2;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 0.25rem;
+        }
+
+        .advantage-item {
+            background: #f8f9fb;
+            border-radius: 16px;
+            padding: 1.2rem 1.4rem;
+            border: 1px solid #e2e7ed;
+        }
+
+        .advantage-item h3 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: #1f2f40;
+        }
+
+        .advantage-item p {
+            font-size: 0.95rem;
+            color: #3a4e64;
+        }
+
+        .desc-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .desc-col {
+            flex: 1 1 200px;
+        }
+
+        .desc-col p {
+            margin-bottom: 0.6rem;
+            font-size: 0.98rem;
+        }
+
+        .desc-col .tag {
+            display: inline-block;
+            background: #eef2f7;
+            padding: 0.15rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #3c5773;
+            border: 1px solid #d3dbe4;
+            margin: 0.1rem 0.2rem;
+        }
+
+        /* FAQ summary */
+        .faq-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .faq-item {
+            background: #f6f8fa;
+            border-radius: 14px;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #e0e6ec;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #16212e;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            font-size: 0.95rem;
+            color: #364a5e;
+            margin: 0;
+        }
+
+        .faq-footnote {
+            border-top: 1px solid #dfe4ea;
+            margin-top: 1.5rem;
+            padding-top: 1.2rem;
+            font-size: 0.9rem;
+            color: #3b5168;
+        }
+
+        .faq-footnote a {
+            color: #2d4c73;
+            text-decoration: none;
+            border-bottom: 1px dotted #8da5bf;
+            font-weight: 450;
+        }
+
+        .faq-footnote a:hover {
+            border-bottom: 1px solid #1a2f49;
+        }
+
+        /* bottom links */
+        .bottom-links {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 1.6rem 2rem;
+            border: 1px solid #e0e5ec;
+            margin-bottom: 0.5rem;
+        }
+
+        .bottom-links p {
+            font-size: 0.95rem;
+            color: #2f4359;
+        }
+
+        .bottom-links a {
+            color: #1e3c5a;
+            text-decoration: none;
+            border-bottom: 1px solid #b7c9dd;
+            font-weight: 450;
+        }
+
+        .bottom-links a:hover {
+            border-bottom: 1px solid #0f2841;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #657b93;
+            margin-top: 2rem;
+            padding: 0.8rem 0 0.3rem;
+            border-top: 1px solid #dce2ea;
+        }
+
+        /* responsive */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+            .section-card {
+                padding: 1.5rem 1.2rem;
+            }
+            .hero {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>资料索引 · <span>易胜博体育</span></h1>
+        <p>围绕体育资讯与信息整理，提供一种结构化的浏览方式。本页汇集了平台内容分类、使用场景及常见问题摘要，方便您快速建立认知。</p>
+        <div class="sub-meta">信息参考 · 持续更新</div>
+    </div>
+
+    <!-- 优势区 / 信息整理角度 -->
+    <div class="section-card">
+        <div class="section-title">
+            <span class="accent-line"></span> 信息整理特点
+        </div>
+        <div class="grid-2col">
+            <div class="advantage-item">
+                <h3>分类归档</h3>
+                <p>按赛事、项目、资讯类型组织内容，减少冗余查找。资料层级清晰，便于回溯。</p>
+            </div>
+            <div class="advantage-item">
+                <h3>场景索引</h3>
+                <p>从用户实际浏览需求出发，梳理出若干典型场景，配合导航路径参考，提升效率。</p>
+            </div>
+            <div class="advantage-item">
+                <h3>精简描述</h3>
+                <p>每个条目保留关键信息，避免过度渲染。用平实语言呈现功能与边界。</p>
+            </div>
+            <div class="advantage-item">
+                <h3>关联结构</h3>
+                <p>版块之间设置交叉链接，方便在不同维度间切换，适合习惯系统性阅读的用户。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区 / 从资料角度展开 -->
+    <div class="section-card">
+        <div class="section-title">
+            <span class="accent-line"></span> 内容说明与场景
+        </div>
+        <div class="desc-flex">
+            <div class="desc-col">
+                <p><strong>赛事概览</strong><br>涵盖足球、篮球、网球等主流项目的赛程、积分与简报。每项内容均标注数据来源时段。</p>
+                <p><span class="tag">实时更新</span> <span class="tag">历史归档</span></p>
+            </div>
+            <div class="desc-col">
+                <p><strong>资讯简报</strong><br>聚合队伍动态、转会信息、赛事前瞻。所有摘要均经过基础事实核查，不包含未经确认的传闻。</p>
+                <p><span class="tag">每日摘要</span> <span class="tag">深度分析</span></p>
+            </div>
+            <div class="desc-col">
+                <p><strong>浏览方式</strong><br>可通过分类标签、搜索或时间轴筛选内容。所有链接均指向对应的信息条目。</p>
+                <p><span class="tag">标签筛选</span> <span class="tag">响应式</span></p>
+            </div>
+        </div>
+        <div style="margin-top: 1.3rem; font-size: 0.95rem; background: #f4f7fa; padding: 0.8rem 1.2rem; border-radius: 14px; border: 1px solid #e0e6ed;">
+            💡 建议：若想直接浏览平台内容，可访问 <a href="https://portal-yishengbosport.com" style="color:#1e3c5a; text-decoration: underline; text-underline-offset: 3px;">易胜博体育</a> 查看最新信息分类。本页作为索引参考，帮助了解结构。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="section-card">
+        <div class="section-title">
+            <span class="accent-line"></span> 常见问题摘要
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <strong>资料更新频率如何？</strong>
+                <p>常规内容每日整理一次，重大赛事期间会临时增补。所有更新均标注时间戳。</p>
+            </div>
+            <div class="faq-item">
+                <strong>是否可以检索历史信息？</strong>
+                <p>支持按日期、项目、关键词检索。归档内容保留至少三个月的记录。</p>
+            </div>
+            <div class="faq-item">
+                <strong>信息准确度如何保证？</strong>
+                <p>来源包括官方数据、权威媒体及俱乐部公告，并交叉核实。不采用匿名或单源信息。</p>
+            </div>
+            <div class="faq-item">
+                <strong>移动端浏览体验如何？</strong>
+                <p>页面采用自适应布局，在手机与平板上均可正常阅读，交互元素保持可用性。</p>
+            </div>
+        </div>
+        <div class="faq-footnote">
+            更多疑问可参考平台帮助页，或直接通过 <a href="https://portal-yishengbosport.com">易胜博体育</a> 内的反馈渠道提出。我们会定期汇总并优化索引说明。
+        </div>
+    </div>
+
+    <!-- 底部链接 / 温和引导 -->
+    <div class="bottom-links">
+        <p>📂 本介绍页主要从资料整理角度梳理了平台内容架构与使用方式。如需直接访问平台，可前往 <a href="https://portal-yishengbosport.com">易胜博体育</a> 浏览完整信息目录。</p>
+        <p style="margin-top: 0.5rem;">🔗 其他参考：内容分类说明 · 检索指南 · 常见问题（持续更新）</p>
+    </div>
+
+    <div class="footer-note">
+        信息索引页 · 版本 2025.04 · 所有内容仅供参考
+    </div>
+
+</div>
+</body>
+</html>
